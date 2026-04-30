@@ -1,0 +1,21 @@
+{
+  "name": "codeconnect-ia",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "web:dev": "pnpm --filter web dev",
+    "web:build": "pnpm --filter web build",
+    "web:preview": "pnpm --filter web preview",
+    "web:lint": "pnpm --filter web lint",
+    "api:dev": "pnpm --filter api start:dev",
+    "api:build": "pnpm --filter api build",
+    "api:start": "pnpm --filter api start:prod",
+    "api:test": "pnpm --filter api test",
+    "api:lint": "pnpm --filter api lint",
+    "dev": "pnpm --parallel --filter '*' dev"
+  },
+  "devDependencies": {},
+  "pnpm": {
+    "onlyBuiltDependencies": ["@nestjs/core", "unrs-resolver"]
+  }
+}
