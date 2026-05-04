@@ -13,9 +13,9 @@ export function Checkbox({ id, label, checked, onChange }: CheckboxProps) {
         id={id}
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
-        className="w-4 h-4 rounded border border-[var(--color-border-subtle)] accent-[var(--color-brand)] cursor-pointer"
+        className="w-4 h-4 rounded border border-border-subtle accent-brand cursor-pointer"
       />
-      <span className="text-sm text-[var(--color-text-muted)]">{label}</span>
+      <span className="text-sm text-text-muted">{label}</span>
     </label>
   )
 }

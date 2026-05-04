@@ -11,7 +11,7 @@ export function TextLink({ to, children, className = '' }: TextLinkProps) {
   return (
     <Link
       to={to}
-      className={`text-sm text-[var(--color-brand)] hover:underline focus-visible:underline ${className}`}
+      className={`text-sm text-brand hover:underline focus-visible:underline ${className}`}
     >
       {children}
     </Link>

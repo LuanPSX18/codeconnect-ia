@@ -34,8 +34,8 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       <div>
-        <h1 className="text-3xl font-bold text-[var(--color-text)] mb-1">Login</h1>
-        <p className="text-sm text-[var(--color-text-muted)]">Boas-vindas! Faça seu login.</p>
+        <h1 className="text-3xl font-bold text-text mb-1">Login</h1>
+        <p className="text-sm text-text-muted">Boas-vindas! Faça seu login.</p>
       </div>
 
       <FormField
@@ -72,7 +72,7 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
         <SocialLoginButton iconSrc="/gmail.png" iconAlt="Gmail" label="Gmail" />
       </div>
 
-      <p className="text-sm text-center text-[var(--color-text-muted)]">
+      <p className="text-sm text-center text-text-muted">
         Ainda não tem conta?{' '}
         <TextLink to="/cadastro">Crie seu cadastro! 📋</TextLink>
       </p>

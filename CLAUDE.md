@@ -107,6 +107,74 @@ Rules:
 
 All styling is done with Tailwind utility classes. No separate CSS files per component. Global styles and Tailwind directives go in `apps/web/src/index.css`.
 
+### Design tokens — colors
+
+Colors are defined as Tailwind v4 `@theme` tokens in `apps/web/src/index.css`. Always use the token name via Tailwind utilities (`bg-*`, `text-*`, `border-*`) — never hardcode hex values in components.
+
+| Token | Hex | Use for |
+|---|---|---|
+| `bg-app` | `#00090e` | Outer page background |
+| `card` | `#171d1f` | Auth card / surface containers |
+| `card-deep` | `#132e35` | Text on `brand` (e.g. button label) |
+| `border-subtle` | `#2e303a` | Borders on inputs, dividers, social buttons |
+| `input` | `#2a2c35` | Input field background, hover for ghost surfaces |
+| `brand` | `#81fe88` | Primary action background, link text, focus ring |
+| `brand-hover` | `#5cf28a` | Primary action hover |
+| `text` | `#e1e1e1` | Default body text, headings, input value |
+| `text-muted` | `#888888` | Secondary text, placeholders, helper copy |
+
+Rules:
+- Add a new color only by extending `@theme` in `index.css` — never inline a new hex in JSX.
+- Pair `brand` backgrounds with `card-deep` text (and vice-versa) to preserve contrast.
+- `text-muted` is for de-emphasized text only — never for primary content or critical actions, since contrast against `bg-app` is borderline for WCAG AA on small text.
+
+### Design tokens — sizes & spacing
+
+Use the Tailwind scale consistently across atomic layers. The conventions below are the project defaults — diverge only with a clear reason.
+
+**Typography**
+| Class | Where it goes |
+|---|---|
+| `text-3xl font-bold` | Page/section heading inside an organism (`<h1>` of LoginForm/CadastroForm) |
+| `text-base font-semibold` | Primary button label |
+| `text-sm` | Body copy, input value, label, link, checkbox label |
+| `text-sm font-medium` | Form field `<label>` |
+| `text-xs` | Tertiary text — divider caption, social-button caption |
+
+**Radius**
+| Class | Where it goes |
+|---|---|
+| `rounded-2xl` | Outermost auth card |
+| `rounded-lg` | Buttons, inputs, social buttons |
+| `rounded` | Checkbox |
+
+**Padding (component-internal)**
+| Pattern | Where it goes |
+|---|---|
+| `py-3 px-6` | Primary button |
+| `py-3 px-4` | Social login button |
+| `px-4 py-3` | Input |
+| `p-8 sm:p-10` | Auth card inner section |
+| `p-4 sm:p-6` | Page outer wrapper |
+
+**Spacing (between elements)**
+| Pattern | Where it goes |
+|---|---|
+| `gap-5` | Vertical rhythm between form blocks |
+| `gap-3` | Divider parts; social button grid |
+| `gap-2` | Button content (icon + label); checkbox row |
+| `gap-1` | Label-to-input inside a `FormField` |
+| `mb-1` | Heading-to-subtitle, label-to-input fallback |
+
+**Layout sizing**
+- `min-h-screen` only on the outermost page wrapper (template).
+- `max-w-4xl` for the auth card; pages should not widen this without justification.
+- Form controls span full width via `w-full` — never set fixed widths on inputs/buttons.
+
+Rules:
+- Reach for these tokens before introducing a new size. If you need an in-between value, pick the nearest existing one rather than adding a new step.
+- Icons inside buttons follow content size — do not hardcode pixel dimensions; use Tailwind `w-*`/`h-*` (e.g. `w-7 h-7` for social icons, `w-4 h-4` for checkbox).
+
 ### Component tests
 
 Every component must have a co-located test file (`ComponentName.test.tsx`) covering its essential usage. Tests use the component's public interface (props), not implementation internals.

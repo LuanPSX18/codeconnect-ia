@@ -36,8 +36,8 @@ export function CadastroForm({ onSubmit }: CadastroFormProps) {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       <div>
-        <h1 className="text-3xl font-bold text-[var(--color-text)] mb-1">Cadastro</h1>
-        <p className="text-sm text-[var(--color-text-muted)]">Olá! Preencha seus dados.</p>
+        <h1 className="text-3xl font-bold text-text mb-1">Cadastro</h1>
+        <p className="text-sm text-text-muted">Olá! Preencha seus dados.</p>
       </div>
 
       <FormField
@@ -82,7 +82,7 @@ export function CadastroForm({ onSubmit }: CadastroFormProps) {
         <SocialLoginButton iconSrc="/gmail.png" iconAlt="Gmail" label="Gmail" />
       </div>
 
-      <p className="text-sm text-center text-[var(--color-text-muted)]">
+      <p className="text-sm text-center text-text-muted">
         Já tem conta?{' '}
         <TextLink to="/login">Faça seu login!</TextLink>
       </p>
